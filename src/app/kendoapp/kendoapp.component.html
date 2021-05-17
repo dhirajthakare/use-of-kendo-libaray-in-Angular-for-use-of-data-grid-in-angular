@@ -1,0 +1,125 @@
+<div class="m-5">
+  <h1>Hello Kendo UI for Angular!</h1>
+<p>
+    <kendo-dropdownlist [data]="dropDownItems" [defaultItem]="defaultItem" textField="text" valueField="value" >
+    </kendo-dropdownlist>
+  </p>
+</div>
+
+  <div class=" ">
+
+
+    <kendo-grid style=" text-align:center"  [kendoGridBinding]='data' [resizable]='true' [filterable]='true'
+    [groupable]='true'[sortable]="{
+      allowUnsort:true,
+      mode:'single'
+    }
+    "
+    [pageable]="{
+      buttonCount:3,
+      pageSizes:[10,50,100]
+    }"
+    [pageSize]="10"
+    [groupable]="true"
+    [columnMenu]="{ filter: true }"
+    >
+    <ng-template kendoGridToolbarTemplate>
+      <button kendoGridPDFCommand icon="file-pdf">Export to PDF</button>
+      <button type="button" style="float: right;" kendoGridExcelCommand icon="file-excel">Export to Excel</button>
+
+  </ng-template>
+  <ng-template kendoGridToolbarTemplate>
+</ng-template>
+            <!-- <kendo-grid-column-group  title="product name ">
+
+              <kendo-grid-column field="ProductID"  title="Id" ></kendo-grid-column>
+              <kendo-grid-column field="ProductName"  title="ProductName"></kendo-grid-column>
+              <kendo-grid-column field="UnitPrice"  title="UnitPrice"></kendo-grid-column>
+           
+            </kendo-grid-column-group> -->
+            <kendo-grid-column-group [columnMenu]=" false "  title="Customer ">
+
+              <kendo-grid-column field="id"  title="id"></kendo-grid-column>
+              <kendo-grid-column field="name"  title="Name"></kendo-grid-column>
+              <kendo-grid-column field="email"  title="Email"></kendo-grid-column>
+              <kendo-grid-column field="mobile"  title="Mobile"></kendo-grid-column>
+              <kendo-grid-column field="image"  title="image">
+                <ng-template kendoGridCellTemplate let-dataItem>
+                  <!-- <span *ngIf="dataItem.ProductID == 1" class="badge badge-success">Online</span> -->
+                  <a href="{{imagepath}}{{dataItem.image}}"><img src="{{imagepath}}{{dataItem.image}}" style="object-fit: cover;" height="100" width="100" alt="{{dataItem.image}}"></a>
+              </ng-template>
+              </kendo-grid-column>
+              <kendo-grid-column field="id" title="Action"> 
+                <ng-template kendoGridCellTemplate let-dataItem>
+                  <!-- <span *ngIf="dataItem.ProductID == 1" class="badge badge-success">Online</span> -->
+                  <button class="text-danger m-2" (click)="deleteall(dataItem.id)" >delete</button>
+                  <button class="text-success m-2" (click)="Edit(dataItem)" >Edit</button>
+
+              </ng-template>
+              </kendo-grid-column>
+
+
+            </kendo-grid-column-group>
+
+            <kendo-grid-pdf fileName="Products.pdf" [allPages]="true" paperSize="A4" [repeatHeaders]="true" [landscape]="true">
+              <kendo-grid-pdf-margin top="2cm" left="1cm" right="1cm" bottom="2cm"></kendo-grid-pdf-margin>
+              <ng-template kendoGridPDFTemplate let-pageNum="pageNum" let-totalPages="totalPages">
+               <div class="page-template">
+                  <div class="header">
+                    <div style="float: right">Page {{ pageNum }} of {{ totalPages }}</div>
+                    
+                  </div>
+                  <div class="footer">
+                    Page {{ pageNum }} of {{ totalPages }}
+                  </div>
+                </div>
+                
+              </ng-template>
+              <kendo-grid-column-group [columnMenu]=" false "  title="Customer name ">
+
+                <kendo-grid-column field="id" title="id">
+                </kendo-grid-column>
+                <kendo-grid-column field="name" title="Name">
+                </kendo-grid-column>
+                <kendo-grid-column field="email" title="Email">
+                </kendo-grid-column>
+                <kendo-grid-column field="mobile" title="Mobile">
+                </kendo-grid-column>
+                <!-- <kendo-grid-column field="image" title="Profile Photo">
+                </kendo-grid-column> -->
+                
+              </kendo-grid-column-group>
+              
+
+          </kendo-grid-pdf>
+
+
+          <kendo-grid-excel fileName="Products.xlsx" >
+
+            <kendo-excelexport-column-group  title="Customer name " >
+
+                <kendo-excelexport-column field="id" title="id">
+                </kendo-excelexport-column>
+                <kendo-excelexport-column field="name" title="Name">
+                </kendo-excelexport-column>
+                <kendo-excelexport-column field="email" title="Email">
+                </kendo-excelexport-column>
+                <kendo-excelexport-column field="mobile" title="Mobile">
+                </kendo-excelexport-column>
+
+              </kendo-excelexport-column-group>
+
+          </kendo-grid-excel>
+
+
+    </kendo-grid>
+  </div>
+
+
+<!-- 
+git init
+git add .
+git commit -m "initb",
+git remote url,
+git remote -v
+git push -f origin master -->

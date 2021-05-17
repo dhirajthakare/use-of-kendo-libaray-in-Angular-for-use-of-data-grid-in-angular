@@ -1,0 +1,55 @@
+<div class="">
+    <div class="col-10 offset-1 col-md-6 offset-md-3 card p-5 " style="margin-top: 45px" >
+            <h4>Register Here !</h4><br>
+
+            <div *ngIf="errormeassage" class=" alert alert-danger">
+                <h6> {{errormeassage}}</h6>
+            </div>
+            <div *ngIf="successmeassage" class=" alert alert-success">
+                <h6> {{successmeassage}}</h6>
+            </div>
+            <form [formGroup]="registerdata" method="POST" enctype="multipart/form-data" (submit)="create()">
+               
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input formControlName="id" type="hidden" name="id" class="form-control">
+
+                    <input formControlName="name" type="text" name="name" class="form-control">
+                    <small></small>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input formControlName="email" type="text" name="email" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="mobile">Mobile</label>
+                    <input formControlName="mobile" type="text" name="mobile" class="form-control" >
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input formControlName="password" type="password" name="password" class="form-control">
+                </div>
+                <div class="form-group">
+
+                    <label for="image">Update Profile Photo</label>
+                    <input  (change)="getimage($event)" formControlName="image" type="file" accept="image/*" name="image" id="image" class="form-control">
+            
+                  </div>
+                 <div class="form-group">
+                    <label for="role">User Role</label>
+                     <select formControlName="role" name="role" id="" class="form-control">
+                         <option value="Ety">Select Your Role</option>
+                         <option value="Advisor">Advisor</option>
+                         <option value="Client">Client</option>
+
+                     </select>
+
+                  </div>
+                    <div>
+                    <button type="submit" class="btn btn-primary form-control">Submit </button>
+                </div>
+                <br>
+                <span><a href=""> If You  Have Account then Sign In Here .. </a></span>
+            </form>
+    </div>
+</div>

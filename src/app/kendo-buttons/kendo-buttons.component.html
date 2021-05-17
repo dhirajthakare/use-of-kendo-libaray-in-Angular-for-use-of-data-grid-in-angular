@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2021.1.330/styles/kendo.blueopal.min.css">
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2021.1.330/styles/kendo.common.min.css"> -->
+    <!-- The common stylesheet for basic styling -->
+<link rel="stylesheet" href="http://kendo.cdn.telerik.com/[version number]/styles/kendo.common.min.css" />
+<!-- The theme stylesheet for the specific theme -->
+<link rel="stylesheet" href="http://kendo.cdn.telerik.com/[version number/styles/kendo.[theme name].min.css" />
+
+<!-- Note that the version number here is that of Kendo UI, and not that of jQuery -->
+<script src="http://kendo.cdn.telerik.com/[version number]/js/jquery.min.js"></script>
+<script src="http://kendo.cdn.telerik.com/[version number]/js/kendo.all.min.js"></script>
+
+</head>
+<body>
+    
+    
+<div class="k-block">
+
+    <button kendoButton [look]="'default'" >default button</button>
+    <button kendoButton [look]="'outline'" >outline button</button>
+    <button kendoButton [look]="'bare'" >bare button</button>
+    <button kendoButton  [disabled]="true">default button</button>
+</div>
+
+<div>
+    <button kendoButton  [primary]="true">primary button</button>
+    <button kendoButton  [toggleable]="true">toggleable button</button>
+</div>
+
+<div>
+    <button kendoButton  [icon]="'user'">toggleable button</button>
+<button kendoButton  [icon]="'check'">toggleable button</button>
+<button kendoButton  [icon]="'mark'">toggleable button</button>
+<button kendoButton  [icon]="'trash'">toggleable button</button>
+
+</div>
+<div>
+    <kendo-buttongroup [width]="'100'" look="outline">
+
+        <button kendoButton  [icon]="'user'" [toggleable]="true">toggleable button</button>
+    <button kendoButton  [icon]="'check'" [toggleable]="true">toggleable button</button>
+    <button kendoButton  [icon]="'mark'" [toggleable]="true">toggleable button</button>
+    <button kendoButton  [icon]="'trash'" [toggleable]="true">toggleable button</button>
+    </kendo-buttongroup>
+</div>
+<!-- 
+// Define the HTML table with rows, columns, and data.
+<table id="grid">
+    <colgroup>
+        <col />
+        <col style="width:100px" />
+    </colgroup>
+    <thead>
+        <tr>
+            <th data-field="title" data-filterable="false">Title</th>
+            <th data-field="year" data-type="number" data-template="<strong>#=year#</strong>">Year</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Star Wars: A New Hope</td>
+            <td>1977</td>
+        </tr>
+        <tr>
+            <td>Star Wars: The Empire Strikes Back</td>
+            <td>1980</td>
+        </tr>
+    </tbody>
+</table> -->
+
+<!-- <form id="form">
+    <label>First Name: <input data-bind="value: firstName" /></label>
+    <label>Last Name: <input data-bind="value: lastName" /></label>
+    <label>Gender:
+        <select data-bind="source: genders, value: gender"></select>
+    </label>
+    <label><input type="checkbox" data-bind="checked: agreed" /> I have read the licence agreement</label>
+    <button data-bind="enabled: agreed, click: register">Register</button>
+    <div data-bind="visible: confirmed">
+        Thank you for your registration, <span data-bind="text: firstName"></span> <span data-bind="text: lastName"></span>
+    </div>
+</form> -->
+
+// Initialize the Grid.
+<script>
+
+    $(document).ready(function(){
+      $("#grid").kendoGrid({
+        sortable: true,
+        filterable: true
+      });
+    });
+
+</script>
+</body>
+</html>
