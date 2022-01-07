@@ -27,12 +27,12 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 workin
 
-for button 
+for kendo button 
 ng add @progress/kendo-angular-buttons
 
-for dropdown list 
+for kendo dropdown list 
 ng add @progress/kendo-angular-dropdowns
 
- for data grid
+ for kendo data grid
  ng add @progress/kendo-angular-grid
 

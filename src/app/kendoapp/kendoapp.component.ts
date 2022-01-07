@@ -38,7 +38,8 @@ export class KendoappComponent implements OnInit {
     this.service.getdata().subscribe((res)=>{
       console.log(res);
       this.data = res;
-      this.finalobj = [...this.griddata,...this.data];
+      // this.finalobj = [...this.griddata,...this.data];
+      // console.log(this.finalobj);
       // console.log(this.data[0]);
       // console.log(this.finalobj);
       // let finalObjj = this.data.concat(this.griddata);

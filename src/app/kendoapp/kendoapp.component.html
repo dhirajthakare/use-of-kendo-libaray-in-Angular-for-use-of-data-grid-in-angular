@@ -9,8 +9,12 @@
   <div class=" ">
 
 
-    <kendo-grid style=" text-align:center"  [kendoGridBinding]='data' [resizable]='true' [filterable]='true'
-    [groupable]='true'[sortable]="{
+    <kendo-grid style=" text-align:center"  
+    [kendoGridBinding]='data' 
+    [resizable]='true' 
+    [filterable]='true'
+    [groupable]='true'
+    [sortable]="{
       allowUnsort:true,
       mode:'single'
     }
@@ -21,15 +25,13 @@
     }"
     [pageSize]="10"
     [groupable]="true"
-    [columnMenu]="{ filter: true }"
-    >
+    [columnMenu]="{ filter: true }">
     <ng-template kendoGridToolbarTemplate>
       <button kendoGridPDFCommand icon="file-pdf">Export to PDF</button>
       <button type="button" style="float: right;" kendoGridExcelCommand icon="file-excel">Export to Excel</button>
+    </ng-template>
 
-  </ng-template>
-  <ng-template kendoGridToolbarTemplate>
-</ng-template>
+  <ng-template kendoGridToolbarTemplate></ng-template>
             <!-- <kendo-grid-column-group  title="product name ">
 
               <kendo-grid-column field="ProductID"  title="Id" ></kendo-grid-column>
@@ -42,19 +44,19 @@
               <kendo-grid-column field="id"  title="id"></kendo-grid-column>
               <kendo-grid-column field="name"  title="Name"></kendo-grid-column>
               <kendo-grid-column field="email"  title="Email"></kendo-grid-column>
-              <kendo-grid-column field="mobile"  title="Mobile"></kendo-grid-column>
-              <kendo-grid-column field="image"  title="image">
-                <ng-template kendoGridCellTemplate let-dataItem>
+              <kendo-grid-column field="mobile"   title="Mobile"></kendo-grid-column>
+              <kendo-grid-column field="image"   title="image">
+              <ng-template kendoGridCellTemplate let-dataItem>
                   <!-- <span *ngIf="dataItem.ProductID == 1" class="badge badge-success">Online</span> -->
-                  <a href="{{imagepath}}{{dataItem.image}}"><img src="{{imagepath}}{{dataItem.image}}" style="object-fit: cover;" height="100" width="100" alt="{{dataItem.image}}"></a>
+                  <a  href="{{imagepath}}{{dataItem.image}}"><img src="{{imagepath}}{{dataItem.image}}" style="object-fit: cover;" height="100" width="100" alt="{{dataItem.image}}"></a>
               </ng-template>
               </kendo-grid-column>
+
               <kendo-grid-column field="id" title="Action"> 
                 <ng-template kendoGridCellTemplate let-dataItem>
                   <!-- <span *ngIf="dataItem.ProductID == 1" class="badge badge-success">Online</span> -->
-                  <button class="text-danger m-2" (click)="deleteall(dataItem.id)" >delete</button>
-                  <button class="text-success m-2" (click)="Edit(dataItem)" >Edit</button>
-
+                  <button class="text-danger m-2" kendoButton  [icon]="'trash'" (click)="deleteall(dataItem.id)" ></button>
+                  <button class="text-success m-2" kendoButton  [icon]="'pencil'" (click)="Edit(dataItem)" ></button>
               </ng-template>
               </kendo-grid-column>
 
@@ -115,11 +117,16 @@
     </kendo-grid>
   </div>
 
-
+<div>
 <!-- 
-git init
-git add .
-git commit -m "initb",
-git remote url,
-git remote -v
-git push -f origin master -->
+    {{data|json}}
+  {{data[6].created_at}} <br>
+  {{data[6].created_at | date}} <br>
+  {{data[6].created_at | date:'short'}} <br>
+  {{data[6].created_at | date:'medium'}} <br>
+  {{data[6].created_at | date:'long'}} <br> -->
+
+
+
+
+</div>
